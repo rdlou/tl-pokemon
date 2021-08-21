@@ -1,4 +1,10 @@
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
+from pokedex import get_pokemon
+import translator
+import json
+import pytest
+
 
 app = FastAPI()
 
@@ -9,8 +15,14 @@ async def root():
 
 @app.get("/pokemon/{pokemon_name}")
 async def pokemon(pokemon_name):
-    return {"message": f"Hello, this is {pokemon_name}"}
+    pokemon = get_pokemon(pokemon_name)
+
+    if not pokemon:
+        return JSONResponse(content={"message":f"Unable to find a pokemon with the name {pokemon_name}"},status_code=404)
+    return pokemon
 
 @app.get("/pokemon/translated/{pokemon_name}")
 async def pokemon_transalted(pokemon_name):
-    return {"message": f"Hello, this is {pokemon_name} wityh the translated stuff"}
+    pokemon = get_pokemon(pokemon_name)
+    translated_pokemon = translator.translate(pokemon)
+    return translated_pokemon
