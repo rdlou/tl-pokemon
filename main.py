@@ -24,5 +24,7 @@ async def pokemon(pokemon_name):
 @app.get("/pokemon/translated/{pokemon_name}")
 async def pokemon_transalted(pokemon_name):
     pokemon = get_pokemon(pokemon_name)
+    if not pokemon:
+        return JSONResponse(content={"message":f"Unable to find a pokemon with the name {pokemon_name}"},status_code=404)
     translated_pokemon = translator.translate(pokemon)
     return translated_pokemon
