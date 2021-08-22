@@ -29,7 +29,6 @@ def get_translation(pokemon):
         if response.status_code != 200:
             return description
         translated = response.json().get("contents").get("translated")
-        print(translated)
         return translated
     except:
         logging.warning(f"Call to {url} with data {data} failed with response {response.status_code}. \n {response.text}")
