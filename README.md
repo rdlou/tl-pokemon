@@ -6,9 +6,7 @@ First make sure you have Docker downloaded and installed.
 
 * Follow the instructions for your operating system from here https://docs.docker.com/desktop/mac/install/
 
-Once Docker is installed, clone this repositry.  This can be done from the Github website using these instructions: 
-
-Or from the command line using these instructions: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository
+Once Docker is installed, clone this repositry.  This can be done from the Github website using these instructions: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository
 
 Once you have this locally on your machine, in your terminal navigate to the directory and run the following command:
 * docker build -t pokeapi .
