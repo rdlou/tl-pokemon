@@ -2,24 +2,26 @@
 Pokedex API
 
 ## Install instructions
-First make sure you have Docker installed.
+First make sure you have Docker downloaded and installed.
 
-* Download Docker from here: ..................
-* Install instructions for Mac and Linux here:................
+* Follow the instructions for your operating system from here https://docs.docker.com/desktop/mac/install/
 
 Once Docker is installed, clone this repositry.  This can be done from the Github website using these instructions: 
 
-Or from the command line using these instructions:
+Or from the command line using these instructions: https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository-from-github/cloning-a-repository
 
 Once you have this locally on your machine, in your terminal navigate to the directory and run the following command:
-* docker build
+* docker build -t pokeapi .
+
+Now the image has been built, we need to run the container with the following command:
+* docker run -d --name pokeapi -p 80:80 pokeapi
 
 Once the project has been built, 2 endpoints will be exposed.
 
 They will be:
 
-* http://127.0.0.1:8080/pokemon/{pokemon_name}
-* http://127.0.0.1:8080/pokemon/translated/{pokemon_name}
+* http://127.0.0.1/pokemon/{pokemon_name}
+* http://127.0.0.1/pokemon/translated/{pokemon_name}
 
 ## Current Architecture
 The basis of this is a FastAPI, uusing the standard python requests libarary to further query the pokeapi and the translation apis.  Pytest is doing the tests
